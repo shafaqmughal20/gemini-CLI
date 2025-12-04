@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Scores</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .score-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .score-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .score-card h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Cricket Scores</h1>
+    <div class="score-container">
+        {% for score in scores %}
+            <div class="score-card">
+                <h2>{{ score.title }}</h2>
+                <p>{{ score.description }}</p>
+                <a href="{{ score.link }}" target="_blank">More Info</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
